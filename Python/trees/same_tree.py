@@ -1,0 +1,11 @@
+from TreeNode import TreeNode
+from typing import Optional
+
+class Solution:
+
+    def isSameTree(self, p: TreeNode, q: TreeNode) -> bool:
+        if not p and not q:
+            return True
+        if not p or not q or q.val != p.val:
+            return False
+        return (self.isSameTree(p.left,q.left) and self.isSameTree(p.right,q.right))
